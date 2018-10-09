@@ -1,0 +1,24 @@
+{
+  "name": "crud",
+  "authors": [
+    "RisingGeek <bhavaypuri15@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "keywords": [
+    "crud"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.7.5",
+    "bootstrap": "^4.1.3"
+  }
+}

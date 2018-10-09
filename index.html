@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="scripts/item.js"></script>
+    <script src="scripts/app2.js"></script>
+    <script src="scripts/itemOperations.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="myctrl">
+    <h1 class="text-center">CRUD</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="ID" ng-model="item.id">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Name" ng-model="item.name">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Branch" ng-model="item.branch">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="addItem()">Add</button>
+            <button class="btn btn-danger" ng-click="deleteItem()">Delete</button>
+            <button class="btn btn-success" ng-disabled="{{isTrue}}">Update</button>
+        </div>
+    </div>
+    <div class="container">
+        <p>Total items are {{itemLen}} Marked items are {{marked}} Unmarked items are {{unmarked}}</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-class="{'table-danger':item.isMarked}" ng-repeat="item in items">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.branch}}</td>
+                    <td>
+                        <button class="btn" ng-click="mark(item.id)">Delete</button>
+                        <button class="btn" ng-click="editItem(item.id)">edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
