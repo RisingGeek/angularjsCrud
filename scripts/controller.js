@@ -21,7 +21,10 @@ app.controller("myctrl",['$scope','myfactory',(scope,factory)=>{
         scope.marked=factory.marked();
         scope.unmarked=scope.itemLen-scope.marked;
     };
-    scope.editItem=(id)=> {
-        scope.items=factory.edit(id);
+    scope.updateItem=()=> {
+        scope.items=factory.edit(scope.item);
+        scope.itemLen=factory.length();
+        scope.marked=factory.marked();
+        scope.unmarked=scope.itemLen-scope.marked;
     };
 }]);

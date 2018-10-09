@@ -18,8 +18,24 @@ app2.factory("myfactory",()=>{
             this.items=this.items.filter((it)=>it.isMarked==false);
             return this.items;
         },
-        edit(id) {
-            
+        edit(item) {
+            if(this.items.filter((it)=>it.isMarked).length>1) {
+                alert('Only 1 item can be updated at a time');
+                return this.items;
+            }
+            if(this.items.find((it)=>it.id==item.id)) {
+                alert("This ID already exists");
+                return this.items;
+            }
+            this.items.find((it,index)=>{
+                if(it.isMarked) {
+                    this.items[index].id=item.id;
+                    this.items[index].name=item.name;
+                    this.items[index].branch=item.branch;
+                    this.items[index].isMarked=false;
+                }
+            })
+            return this.items;
         },
         length() {
             return this.items.length;

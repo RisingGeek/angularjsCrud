@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheet/main.css">
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="scripts/item.js"></script>
     <script src="scripts/app2.js"></script>
@@ -38,7 +40,7 @@
         <div class="form-group">
             <button class="btn btn-primary" ng-click="addItem()">Add</button>
             <button class="btn btn-danger" ng-click="deleteItem()">Delete</button>
-            <button class="btn btn-success" ng-disabled="{{isTrue}}">Update</button>
+            <button class="btn btn-success" ng-click="updateItem()">Update</button>
         </div>
     </div>
     <div class="container">
@@ -53,13 +55,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-class="{'table-danger':item.isMarked}" ng-repeat="item in items">
+                <tr ng-class="{'table-danger':item.isMarked}" ng-repeat="item in items" class="tableCrud">
                     <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.branch}}</td>
                     <td>
-                        <button class="btn" ng-click="mark(item.id)">Delete</button>
-                        <button class="btn" ng-click="editItem(item.id)">edit</button></td>
+                        <button class="btn" ng-click="mark(item.id)">
+                            <span class="fa fa-trash text-danger"></span>
+                        </button>
+                        <button class="btn" ng-click="mark(item.id)">
+                            <span class="fa fa-pencil text-primary"></span>
+                        </button></td>
                 </tr>
             </tbody>
         </table>
