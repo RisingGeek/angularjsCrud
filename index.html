@@ -37,10 +37,20 @@
         </div>
     </div>
     <div class="container">
-        <div class="form-group">
-            <button class="btn btn-primary" ng-click="addItem()">Add</button>
-            <button class="btn btn-danger" ng-click="deleteItem()">Delete</button>
-            <button class="btn btn-success" ng-click="updateItem()">Update</button>
+        <div class="row">
+            <div class="col-sm-1">
+                <button class="btn btn-primary" ng-click="addItem()">Add</button>
+            </div>
+            <div class="col-sm-1">
+                <button class="btn btn-danger" ng-click="deleteItem()">Delete</button>
+            </div>
+            <div class="col-sm-1">
+                <button class="btn btn-success" ng-click="updateItem()">Update</button>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" placeholder="start searching..." ng-model="searchThis" class="form-control">
+            </div>
+            <div class="col-sm-6"></div>
         </div>
     </div>
     <div class="container">
@@ -55,7 +65,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-class="{'table-danger':item.isMarked}" ng-repeat="item in items" class="tableCrud">
+                <tr ng-class="{'table-danger':item.isMarked}" ng-repeat="item in items | filter: searchThis" class="tableCrud">
                     <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.branch}}</td>
